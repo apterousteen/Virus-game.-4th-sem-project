@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 467637741}
   - component: {fileID: 467637744}
   - component: {fileID: 467637745}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Test Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,6 +313,36 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!1 &468172343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 468172344}
+  m_Layer: 0
+  m_Name: feetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &468172344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468172343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.123, y: -0.553, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1717986441}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1717986441}
+  yBias: 1.9
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -423,7 +454,7 @@ GameObject:
   - component: {fileID: 1217733176}
   - component: {fileID: 1217733175}
   - component: {fileID: 1217733179}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platofrm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +646,7 @@ GameObject:
   - component: {fileID: 1481127207}
   - component: {fileID: 1481127206}
   - component: {fileID: 1481127210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platofrm3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +838,7 @@ GameObject:
   - component: {fileID: 1516129427}
   - component: {fileID: 1516129426}
   - component: {fileID: 1516129430}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platofrm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1066,7 +1097,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.36, y: -2.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 468172344}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1084,6 +1116,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   jumpForce: 12
+  jumpTime: 0.25
+  extraJumpsValue: 2
+  feetPos: {fileID: 468172344}
+  checkRadius: 0.3
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  dashForce: 10000
+  dashCooldownValue: 1
 --- !u!61 &1717986443
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1125,7 +1166,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1144,7 +1185,7 @@ GameObject:
   - component: {fileID: 2133049601}
   - component: {fileID: 2133049600}
   - component: {fileID: 2133049604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platofrm4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
